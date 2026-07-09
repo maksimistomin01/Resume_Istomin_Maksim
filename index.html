@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Резюме - Истомин Максим Сергеевич</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,190 +13,439 @@
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f5f5f5;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #f0f4f0 0%, #f8f8f8 100%);
             line-height: 1.6;
+            color: #333;
+            cursor: default;
         }
         
         .container {
             display: flex;
             max-width: 1200px;
-            margin: 20px auto;
+            margin: 30px auto;
             background-color: white;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
             min-height: 100vh;
+            border-radius: 8px;
+            overflow: hidden;
+            animation: fadeIn 0.6s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
         .sidebar {
             width: 35%;
-            background-color: #2d5016;
+            background: linear-gradient(135deg, #1a3a1a 0%, #2d5016 100%);
             color: white;
-            padding: 40px 30px;
+            padding: 50px 35px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .sidebar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(255,149,0,0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .sidebar-content {
+            position: relative;
+            z-index: 1;
         }
         
         .main {
             width: 65%;
-            padding: 40px;
+            padding: 50px 45px;
             background-color: white;
+            animation: slideIn 0.6s ease-in 0.1s backwards;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
         
         .name {
-            font-size: 32px;
-            font-weight: bold;
-            margin-bottom: 10px;
-            line-height: 1.2;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.1;
+            letter-spacing: -0.5px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .name:hover {
+            color: #ff9500;
+            text-shadow: 0 0 20px rgba(255,149,0,0.3);
+            transform: translateX(5px);
         }
         
         .title {
-            font-size: 14px;
+            font-size: 12px;
             color: #ff9500;
-            font-weight: bold;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 30px;
-            line-height: 1.5;
+            letter-spacing: 1.2px;
+            margin-bottom: 35px;
+            line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+        
+        .title:hover {
+            letter-spacing: 1.8px;
+            text-shadow: 0 0 15px rgba(255,149,0,0.4);
         }
         
         .section-title {
-            font-size: 12px;
+            font-size: 11px;
             color: #ff9500;
-            font-weight: bold;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 25px;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
+            letter-spacing: 1.5px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
             border-bottom: 2px solid #ff9500;
+            transition: all 0.3s ease;
+        }
+        
+        .section-title:hover {
+            border-bottom-color: #ffb84d;
+            padding-left: 5px;
         }
         
         .section-title-main {
-            font-size: 14px;
-            color: #2d5016;
-            font-weight: bold;
+            font-size: 13px;
+            color: #1a3a1a;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
             border-bottom: 3px solid #ff9500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .section-title-main::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            height: 3px;
+            background: #ffb84d;
+            width: 0;
+            transition: width 0.3s ease;
+        }
+        
+        .section-title-main:hover {
+            padding-left: 10px;
+        }
+        
+        .section-title-main:hover::after {
+            width: 100%;
         }
         
         .contact-item {
             font-size: 13px;
-            margin-bottom: 12px;
-            line-height: 1.4;
+            margin-bottom: 14px;
+            line-height: 1.5;
+            word-break: break-word;
+            transition: all 0.3s ease;
+            padding: 8px 10px;
+            border-radius: 4px;
+            cursor: pointer;
         }
         
-        .contact-label {
-            display: inline-block;
-            font-weight: 600;
-            width: 80px;
-        }
-        
-        .contact-value {
-            color: #e8e8e8;
+        .contact-item:hover {
+            background-color: rgba(255,149,0,0.1);
+            padding-left: 15px;
+            color: #ffb84d;
         }
         
         .competency {
-            margin-bottom: 20px;
+            margin-bottom: 24px;
+            transition: all 0.3s ease;
+            padding: 12px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .competency:hover {
+            background-color: rgba(255,149,0,0.08);
+            transform: translateX(5px);
         }
         
         .competency-title {
-            font-weight: 600;
-            font-size: 13px;
+            font-weight: 700;
+            font-size: 12px;
             margin-bottom: 8px;
             color: #ff9500;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+        
+        .competency:hover .competency-title {
+            color: #ffb84d;
+            text-shadow: 0 0 10px rgba(255,149,0,0.3);
         }
         
         .competency-text {
             font-size: 12px;
-            line-height: 1.5;
-            color: #d0d0d0;
+            line-height: 1.6;
+            color: #e0e0e0;
+            transition: all 0.3s ease;
+        }
+        
+        .competency:hover .competency-text {
+            color: #ffffff;
         }
         
         .job-title {
-            font-size: 16px;
-            font-weight: bold;
-            color: #2d5016;
-            margin-bottom: 5px;
+            font-size: 17px;
+            font-weight: 700;
+            color: #1a3a1a;
+            margin-bottom: 6px;
+            letter-spacing: -0.3px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            padding-bottom: 5px;
+        }
+        
+        .job-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: #ff9500;
+            transition: width 0.3s ease;
+        }
+        
+        .job-title:hover {
+            color: #ff9500;
+            padding-left: 5px;
+        }
+        
+        .job-title:hover::after {
+            width: 100%;
         }
         
         .job-meta {
             font-size: 13px;
-            color: #666;
-            margin-bottom: 15px;
-            font-style: italic;
+            color: #888;
+            margin-bottom: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .job-meta:hover {
+            color: #ff9500;
         }
         
         .job-role {
             font-size: 12px;
             color: #ff9500;
             font-weight: 600;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
+            letter-spacing: 0.3px;
+            transition: all 0.3s ease;
+        }
+        
+        .job-role:hover {
+            color: #ffb84d;
+            text-shadow: 0 0 8px rgba(255,149,0,0.2);
         }
         
         .job-description {
             font-size: 13px;
-            line-height: 1.6;
+            line-height: 1.7;
             color: #333;
-            margin-bottom: 20px;
+            margin-bottom: 22px;
+            transition: all 0.3s ease;
+            padding: 15px;
+            border-radius: 4px;
+        }
+        
+        .job-description:hover {
+            background-color: #f9f9f9;
+            border-left: 3px solid #ff9500;
+            padding-left: 18px;
         }
         
         .bullet-point {
-            margin-left: 15px;
-            margin-bottom: 10px;
+            margin-left: 0;
+            margin-bottom: 12px;
             color: #333;
             font-size: 13px;
-            line-height: 1.5;
+            line-height: 1.7;
+            transition: all 0.3s ease;
+            padding: 8px;
+            border-radius: 4px;
+        }
+        
+        .bullet-point:hover {
+            background-color: #f5f5f5;
+            padding-left: 12px;
         }
         
         .bullet-point:before {
             content: "▪ ";
             color: #ff9500;
-            font-weight: bold;
-            margin-right: 8px;
+            font-weight: 600;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .bullet-point:hover:before {
+            color: #ffb84d;
+            font-size: 16px;
         }
         
         .sub-bullet {
-            margin-left: 30px;
+            margin-left: 24px;
             margin-bottom: 8px;
             color: #555;
             font-size: 12px;
-            line-height: 1.5;
+            line-height: 1.6;
+            transition: all 0.2s ease;
+        }
+        
+        .sub-bullet:hover {
+            color: #ff9500;
+            padding-left: 5px;
         }
         
         .sub-bullet:before {
             content: "– ";
             color: #ff9500;
-            margin-right: 6px;
+            margin-right: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
         
         .achievement {
-            background-color: #f9f9f9;
-            padding: 15px;
-            margin-bottom: 15px;
+            background-color: #fafafa;
+            padding: 18px;
+            margin-bottom: 18px;
             border-left: 4px solid #ff9500;
-            border-radius: 2px;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .achievement::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,149,0,0.1), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .achievement:hover {
+            background-color: #fff5e6;
+            border-left-width: 6px;
+            border-left-color: #ffb84d;
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(255,149,0,0.15);
+        }
+        
+        .achievement:hover::before {
+            left: 100%;
         }
         
         .achievement-title {
-            font-weight: bold;
-            color: #2d5016;
-            margin-bottom: 8px;
+            font-weight: 700;
+            color: #1a3a1a;
+            margin-bottom: 10px;
             font-size: 13px;
+            letter-spacing: -0.2px;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .achievement:hover .achievement-title {
+            color: #ff9500;
         }
         
         .achievement-text {
             font-size: 12px;
+            color: #555;
+            line-height: 1.7;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .achievement:hover .achievement-text {
             color: #333;
-            line-height: 1.5;
         }
         
         .tools {
-            font-size: 12px;
-            color: #d0d0d0;
-            line-height: 1.6;
+            font-size: 13px;
+            color: #d8d8d8;
+            line-height: 1.7;
             word-wrap: break-word;
+            transition: all 0.3s ease;
+            padding: 12px;
+            border-radius: 4px;
+        }
+        
+        .tools:hover {
+            color: #ffffff;
+            background-color: rgba(255,149,0,0.1);
+        }
+        
+        .highlight {
+            color: #ff9500;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 0 rgba(255,149,0,0.5);
+        }
+        
+        .highlight:hover {
+            text-shadow: 0 0 10px rgba(255,149,0,0.5);
+        }
+        
+        @media (max-width: 900px) {
+            .container {
+                flex-direction: column;
+            }
+            .sidebar, .main {
+                width: 100%;
+            }
         }
         
         @media print {
@@ -208,61 +458,48 @@
                 box-shadow: none;
             }
         }
-        
-        .highlight {
-            color: #ff9500;
-            font-weight: bold;
-        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="sidebar">
-            <div class="name">Истомин<br>Максим<br>Сергеевич</div>
-            <div class="title">Перформанс-маркетолог<br>Руководитель отдела<br>маркетинга</div>
-            
-            <div class="section-title">Контакты</div>
-            <div class="contact-item">
-                <span class="contact-label">+7 906 844-70-31</span>
-            </div>
-            <div class="contact-item">
-                <span class="contact-label">maks.istomin.01@bk.ru</span>
-            </div>
-            <div class="contact-item">
-                <span class="contact-label">t.me/m_istomin</span>
-            </div>
-            <div class="contact-item">
-                <span class="contact-label">Оренбург · удалённо</span>
-            </div>
-            <div class="contact-item">
-                <span class="contact-label">19.05.2001 · 25 лет</span>
-            </div>
-            
-            <div class="section-title">Компетенции</div>
-            
-            <div class="competency">
-                <div class="competency-title">Performance-маркетинг</div>
-                <div class="competency-text">VK Ads, Telegram Ads, медиапланирование, распределение бюджета по окупаемости</div>
-            </div>
-            
-            <div class="competency">
-                <div class="competency-title">Сквозная аналитика</div>
-                <div class="competency-text">Отчётность и метрики: CR, CPL, CAC, ROMI; A/B-тесты</div>
-            </div>
-            
-            <div class="competency">
-                <div class="competency-title">Юнит-экономика</div>
-                <div class="competency-text">Прогноз выручки, LTV, окупаемость (ROMI / eROMI)</div>
-            </div>
-            
-            <div class="competency">
-                <div class="competency-title">Воронки и автоворонки</div>
-                <div class="competency-text">Чат-боты (Senler / VK), лид-магниты, точки входа, старты продаж</div>
-            </div>
-            
-            <div class="competency">
-                <div class="competency-title">Управление</div>
-                <div class="competency-text">Команды до 6–7 человек и подрядчики, найм, регламенты</div>
+            <div class="sidebar-content">
+                <div class="name">Истомин<br>Максим<br>Сергеевич</div>
+                <div class="title">Перформанс-маркетолог<br>Руководитель отдела<br>маркетинга</div>
+                
+                <div class="section-title">Контакты</div>
+                <div class="contact-item">+7 906 844-70-31</div>
+                <div class="contact-item">maks.istomin.01@bk.ru</div>
+                <div class="contact-item">t.me/m_istomin</div>
+                <div class="contact-item">Оренбург · удалённо</div>
+                <div class="contact-item">19.05.2001 · 25 лет</div>
+                
+                <div class="section-title">Компетенции</div>
+                
+                <div class="competency">
+                    <div class="competency-title">Performance-маркетинг</div>
+                    <div class="competency-text">VK Ads, Telegram Ads, медиапланирование, распределение бюджета по окупаемости</div>
+                </div>
+                
+                <div class="competency">
+                    <div class="competency-title">Сквозная аналитика</div>
+                    <div class="competency-text">Отчётость и метрики: CR, CPL, CAC, ROMI; A/B-тесты</div>
+                </div>
+                
+                <div class="competency">
+                    <div class="competency-title">Юнит-экономика</div>
+                    <div class="competency-text">Прогноз выручки, LTV, окупаемость (ROMI / eROMI)</div>
+                </div>
+                
+                <div class="competency">
+                    <div class="competency-title">Воронки и автоворонки</div>
+                    <div class="competency-text">Чат-боты (Senler / VK), лид-магниты, точки входа, старты продаж</div>
+                </div>
+                
+                <div class="competency">
+                    <div class="competency-title">Управление</div>
+                    <div class="competency-text">Команды до 6–7 человек и подрядчики, найм, регламенты</div>
+                </div>
             </div>
         </div>
         
@@ -306,7 +543,7 @@
                 <div class="sub-bullet">Каркас используется и развивается до сих пор</div>
             </div>
             
-            <div class="bullet-point">Выстроил аналитику трафика вплоть до отдельных рекламных кампаний и лид-магнитов (встроенные id) → точечное перераспределение бюджета на самые окупаемые предметы</div>
+            <div class="bullet-point">Выстроил аналитику трафика вплоть до отдельных рекламных кампаний и лид-магнитов → точечное перераспределение бюджета на самые окупаемые предметы</div>
             
             <div class="bullet-point">Построил систему чат-ботов и автоворонок продаж (Senler/VK):
                 <div class="sub-bullet">Собрал команду исполнителей</div>
@@ -345,7 +582,7 @@
             <div class="section-title-main">СОБСТВЕННЫЕ ПРОДУКТЫ</div>
             
             <div class="job-title">PULSE — SaaS сквозной аналитики Telegram-каналов</div>
-            <div class="job-meta">Основатель · 2024 — наст. время</div>
+            <div class="job-meta">Основатель · 2025 — наст. время</div>
             
             <div class="bullet-point">С нуля и на собственные средства:
                 <div class="sub-bullet">Собрал команду, спроектировал и разработал платформу (фронтенд + бэкенд)</div>
