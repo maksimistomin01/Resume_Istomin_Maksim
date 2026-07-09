@@ -26,7 +26,6 @@
             margin: 30px auto;
             background-color: white;
             box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-            min-height: 100vh;
             border-radius: 8px;
             overflow: hidden;
             animation: fadeIn 0.6s ease-in;
@@ -50,6 +49,8 @@
             padding: 50px 35px;
             transition: all 0.3s ease;
             position: relative;
+            max-height: 100vh;
+            overflow-y: auto;
         }
         
         .sidebar::before {
@@ -73,6 +74,8 @@
             padding: 50px 45px;
             background-color: white;
             animation: slideIn 0.6s ease-in 0.1s backwards;
+            max-height: 100vh;
+            overflow-y: auto;
         }
         
         @keyframes slideIn {
@@ -445,6 +448,7 @@
             }
             .sidebar, .main {
                 width: 100%;
+                max-height: none;
             }
         }
         
@@ -483,7 +487,7 @@
                 
                 <div class="competency">
                     <div class="competency-title">Сквозная аналитика</div>
-                    <div class="competency-text">Отчётость и метрики: CR, CPL, CAC, ROMI; A/B-тесты</div>
+                    <div class="competency-text">Отчётность и метрики: CR, CPL, CAC, ROMI; A/B-тесты</div>
                 </div>
                 
                 <div class="competency">
@@ -499,6 +503,26 @@
                 <div class="competency">
                     <div class="competency-title">Управление</div>
                     <div class="competency-text">Команды до 6–7 человек и подрядчики, найм, регламенты</div>
+                </div>
+                
+                <div class="competency">
+                    <div class="competency-title">Отдел продаж</div>
+                    <div class="competency-text">Построение с нуля, скрипты, CRM, планы продаж</div>
+                </div>
+                
+                <div class="section-title">Образование</div>
+                
+                <div class="job-description" style="font-size: 12px; padding: 10px;">
+                    <strong>РЭУ им. Г.В. Плеханова</strong><br>
+                    Магистратура «Менеджмент»<br>
+                    2023 — 2025<br><br>
+                    Бакалавриат «Менеджмент»<br>
+                    2019 — 2023
+                </div>
+                
+                <div class="section-title">Инструменты</div>
+                <div class="tools">
+                    VK Ads · Telegram Ads · Senler · CRM · Figma · Tilda · Google Sheets / Excel · ИИ
                 </div>
             </div>
         </div>
@@ -557,6 +581,12 @@
                 <div class="sub-bullet">Рост метрик</div>
             </div>
             
+            <div class="bullet-point">Начинал в продажах:
+                <div class="sub-bullet">Выполнял планы продаж</div>
+                <div class="sub-bullet">Мои скрипты брали в пример и передавали стажёрам</div>
+                <div class="sub-bullet">Это дало понимание ЦА и воронки «изнутри»</div>
+            </div>
+            
             <div class="achievement">
                 <div class="achievement-title">Медиаплан сезона 24/25</div>
                 <div class="achievement-text">• С нуля спроектировано медиапланирование на все платные источники трафика
@@ -579,15 +609,85 @@
                 <br>• Средний ROMI по всем предметам 173%</div>
             </div>
             
+            <div class="section-title-main">ПРОЕКТНАЯ ДЕЯТЕЛЬНОСТЬ</div>
+            
+            <div class="job-title">ЕГЭFLEX — онлайн-школа ЕГЭ</div>
+            <div class="job-role">Перформанс-маркетолог · РОП · воронки</div>
+            
+            <div class="bullet-point">Построил сквозную аналитику школы с нуля и довёл её до рабочего инструмента принятия решений:
+                <div class="sub-bullet">Единая картина по тратам, лидам, конверсиям и продажам</div>
+                <div class="sub-bullet">Окупаемость каналов, на которую опиралось распределение бюджета</div>
+            </div>
+            
+            <div class="bullet-point">Привлёк команды по трафику и подключил каналы привлечения (Telegram инфлюенс-закупка и Telegram Ads, ВКонтакте, Авито):
+                <div class="sub-bullet">Структурировал распределение бюджета</div>
+                <div class="sub-bullet">Внедрил отчётность по командам</div>
+                <div class="sub-bullet">Внедрил KPI-мотивацию для подрядчиков и таргетологов</div>
+            </div>
+            
+            <div class="bullet-point">С нуля выстроил отдел продаж:
+                <div class="sub-bullet">Вырастил команду с 1 до 5+ менеджеров (найм и ротация)</div>
+                <div class="sub-bullet">Внедрил отчётность по менеджерам</div>
+                <div class="sub-bullet">Организовал работу в CRM</div>
+                <div class="sub-bullet">Разработал и A/B-тестировал скрипты</div>
+            </div>
+            
+            <div class="bullet-point">Собрал базовые автоворонки, лид-магниты и точки входа в чат-ботах</div>
+            <div class="bullet-point">Распределял трафик по каналам привлечения и создавал и усиливал воронки продаж</div>
+            <div class="bullet-point">Контент-маркетинг в соцсетях, в т.ч. Instagram: контент-план, ведение новых аккаунтов с нуля</div>
+            <div class="bullet-point">Найм и ротация команды (менеджеры отдела продаж и SMM-специалисты)</div>
+            
+            <div class="job-title">EASYЕНТ — онлайн-школа (Казахстан)</div>
+            <div class="job-role">Маркетолог</div>
+            <div class="job-meta">Февраль 2024 — июль 2024 (6 месяцев, проектно)</div>
+            
+            <div class="bullet-point">Подключился к проекту на неполную занятость (проектно) — вёл маркетинг и поддерживал отдел продаж на казахстанском рынке</div>
+            
+            <div class="bullet-point">Распределял трафик по каналам привлечения, создавал и усиливал воронки продаж; выстраивал маркетинговые процессы и поддерживал отдел продаж на рынке СНГ</div>
+            
+            <div class="bullet-point">Взаимодействовал с преподавателями школы: согласовывал контент и подачу материала для маркетинговых активностей, привлекал их к съёмкам и прогревающему контенту</div>
+            
+            <div class="bullet-point">Контент-маркетинг в соцсетях, в т.ч. Instagram: разработал контент-план и запустил ведение новых аккаунтов с нуля</div>
+            
+            <div class="bullet-point">Составлял контент-планы для YouTube и Telegram-канала школы: определял форматы, темы и периодичность публикаций под задачи прогрева и лидогенерации</div>
+            
+            <div class="bullet-point">Готовил презентации для вебинаров, прогревающих эфиров и продающих механик — прорабатывал структуру и смыслы под задачи конкретного запуска</div>
+            
+            <div class="bullet-point">Внедрил систему скидок и промо-акций на курсы (в т.ч. марафоны и специальные предложения к сезону подготовки к ЕНТ) — использовал их как инструмент прогрева и ускорения принятия решения о покупке</div>
+            
+            <div class="bullet-point">Дорабатывал скрипты продаж для менеджеров: адаптировал формулировки под аудиторию и специфику рынка, отслеживал, какие связки лучше конвертируют в оплату</div>
+            
+            <div class="bullet-point">Адаптировал маркетинговые материалы под двуязычную аудиторию (русский/казахский): контролировал качество переводов рекламных и продающих сообщений</div>
+            
+            <div class="bullet-point">Вёл учёт входящих заявок в CRM: контролировал скорость и качество обработки лидов менеджерами</div>
+            
+            <div class="bullet-point">Найм и ротация команды: менеджеры отдела продаж и SMM-специалисты</div>
+            
+            <div class="job-title">Think (ЕГЭ), Парта (ЕГЭ), beauty-школы (2 проекта), ТруШкола, Камерная ЕГЭ-школа</div>
+            <div class="job-role">Проектная работа</div>
+            
+            <div class="bullet-point">Сквозная аналитика</div>
+            <div class="bullet-point">Проджект-менеджмент у таргетологов (VK и Telegram)</div>
+            <div class="bullet-point">Создание и усиление воронок продаж</div>
+            <div class="bullet-point">Автоворонки и рассылки</div>
+            
             <div class="section-title-main">СОБСТВЕННЫЕ ПРОДУКТЫ</div>
             
             <div class="job-title">PULSE — SaaS сквозной аналитики Telegram-каналов</div>
-            <div class="job-meta">Основатель · 2025 — наст. время</div>
+            <div class="job-meta">2025 — наст. время</div>
+            <div class="job-role">Основатель</div>
             
             <div class="bullet-point">С нуля и на собственные средства:
                 <div class="sub-bullet">Собрал команду, спроектировал и разработал платформу (фронтенд + бэкенд)</div>
                 <div class="sub-bullet">Разработал систему атрибуции и техническую интеграцию с Telegram</div>
                 <div class="sub-bullet">Выстроил маркетинг продукта</div>
+            </div>
+            
+            <div class="achievement">
+                <div class="achievement-title">Сквозная атрибуция Telegram</div>
+                <div class="achievement-text">• От рекламного размещения до оплаты на уровне конкретного пользователя
+                <br>• Реальные ROMI, CPL и LTV в разрезе канала, объявления и когорты
+                <br>• Интеграция с Telegram на уровне протокола (не через стандартную статистику)</div>
             </div>
             
             <div class="achievement">
@@ -599,19 +699,15 @@
                 <br>• Средний eROMI более 340% (с учётом повторных покупок)</div>
             </div>
             
-            <div class="section-title-main">ОБРАЗОВАНИЕ</div>
+            <div class="job-title">TEXTCHECK — распознавание текста на креативах</div>
+            <div class="job-role">Действующий</div>
             
-            <div class="job-description">
-                <strong>РЭУ им. Г.В. Плеханова, Оренбургский филиал</strong><br>
-                Магистратура «Менеджмент» (38.04.02) · 2023 — 2025<br><br>
-                <strong>РЭУ им. Г.В. Плеханова, Оренбургский филиал</strong><br>
-                Бакалавриат «Менеджмент» (38.03.02) · 2019 — 2023
-            </div>
+            <div class="bullet-point">Определяет процент текста на изображении до публикации — креативы заранее проходят модерацию рекламы; экономит время команды и снижает риск отклонения объявлений</div>
             
-            <div class="section-title-main">ИНСТРУМЕНТЫ</div>
-            <div class="tools">
-                VK Ads · Telegram Ads · Senler · CRM · Figma · Tilda · Google Sheets / Excel · ИИ
-            </div>
+            <div class="job-title">CRM ДЛЯ B2B-ПРОДАЖ</div>
+            <div class="job-role">Действующая</div>
+            
+            <div class="bullet-point">Менеджер заносит контакты из соцсетей, фиксирует и переключает статусы сделок по актуальности, вносит суммы и ведёт всю воронку продаж в одном окне</div>
         </div>
     </div>
 </body>
