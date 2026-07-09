@@ -1,1 +1,381 @@
-
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Резюме - Истомин Максим Сергеевич</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            line-height: 1.6;
+        }
+        
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            min-height: 100vh;
+        }
+        
+        .sidebar {
+            width: 35%;
+            background-color: #2d5016;
+            color: white;
+            padding: 40px 30px;
+        }
+        
+        .main {
+            width: 65%;
+            padding: 40px;
+            background-color: white;
+        }
+        
+        .name {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+        
+        .title {
+            font-size: 14px;
+            color: #ff9500;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+        
+        .section-title {
+            font-size: 12px;
+            color: #ff9500;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ff9500;
+        }
+        
+        .section-title-main {
+            font-size: 14px;
+            color: #2d5016;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #ff9500;
+        }
+        
+        .contact-item {
+            font-size: 13px;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+        
+        .contact-label {
+            display: inline-block;
+            font-weight: 600;
+            width: 80px;
+        }
+        
+        .contact-value {
+            color: #e8e8e8;
+        }
+        
+        .competency {
+            margin-bottom: 20px;
+        }
+        
+        .competency-title {
+            font-weight: 600;
+            font-size: 13px;
+            margin-bottom: 8px;
+            color: #ff9500;
+        }
+        
+        .competency-text {
+            font-size: 12px;
+            line-height: 1.5;
+            color: #d0d0d0;
+        }
+        
+        .job-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #2d5016;
+            margin-bottom: 5px;
+        }
+        
+        .job-meta {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        
+        .job-role {
+            font-size: 12px;
+            color: #ff9500;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .job-description {
+            font-size: 13px;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .bullet-point {
+            margin-left: 15px;
+            margin-bottom: 10px;
+            color: #333;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        
+        .bullet-point:before {
+            content: "▪ ";
+            color: #ff9500;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        .sub-bullet {
+            margin-left: 30px;
+            margin-bottom: 8px;
+            color: #555;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+        
+        .sub-bullet:before {
+            content: "– ";
+            color: #ff9500;
+            margin-right: 6px;
+        }
+        
+        .achievement {
+            background-color: #f9f9f9;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 4px solid #ff9500;
+            border-radius: 2px;
+        }
+        
+        .achievement-title {
+            font-weight: bold;
+            color: #2d5016;
+            margin-bottom: 8px;
+            font-size: 13px;
+        }
+        
+        .achievement-text {
+            font-size: 12px;
+            color: #333;
+            line-height: 1.5;
+        }
+        
+        .tools {
+            font-size: 12px;
+            color: #d0d0d0;
+            line-height: 1.6;
+            word-wrap: break-word;
+        }
+        
+        @media print {
+            body {
+                background-color: white;
+            }
+            .container {
+                max-width: 100%;
+                margin: 0;
+                box-shadow: none;
+            }
+        }
+        
+        .highlight {
+            color: #ff9500;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="name">Истомин<br>Максим<br>Сергеевич</div>
+            <div class="title">Перформанс-маркетолог<br>Руководитель отдела<br>маркетинга</div>
+            
+            <div class="section-title">Контакты</div>
+            <div class="contact-item">
+                <span class="contact-label">+7 906 844-70-31</span>
+            </div>
+            <div class="contact-item">
+                <span class="contact-label">maks.istomin.01@bk.ru</span>
+            </div>
+            <div class="contact-item">
+                <span class="contact-label">t.me/m_istomin</span>
+            </div>
+            <div class="contact-item">
+                <span class="contact-label">Оренбург · удалённо</span>
+            </div>
+            <div class="contact-item">
+                <span class="contact-label">19.05.2001 · 25 лет</span>
+            </div>
+            
+            <div class="section-title">Компетенции</div>
+            
+            <div class="competency">
+                <div class="competency-title">Performance-маркетинг</div>
+                <div class="competency-text">VK Ads, Telegram Ads, медиапланирование, распределение бюджета по окупаемости</div>
+            </div>
+            
+            <div class="competency">
+                <div class="competency-title">Сквозная аналитика</div>
+                <div class="competency-text">Отчётность и метрики: CR, CPL, CAC, ROMI; A/B-тесты</div>
+            </div>
+            
+            <div class="competency">
+                <div class="competency-title">Юнит-экономика</div>
+                <div class="competency-text">Прогноз выручки, LTV, окупаемость (ROMI / eROMI)</div>
+            </div>
+            
+            <div class="competency">
+                <div class="competency-title">Воронки и автоворонки</div>
+                <div class="competency-text">Чат-боты (Senler / VK), лид-магниты, точки входа, старты продаж</div>
+            </div>
+            
+            <div class="competency">
+                <div class="competency-title">Управление</div>
+                <div class="competency-text">Команды до 6–7 человек и подрядчики, найм, регламенты</div>
+            </div>
+        </div>
+        
+        <div class="main">
+            <div class="section-title-main">О СЕБЕ</div>
+            <div class="job-description">
+                Маркетолог в EdTech с ~5-летним опытом и полным охватом цепочки «трафик → лиды → продажи → продления». Прошёл путь от менеджера по продажам до перформанс-маркетолога и тимлида: управлял рекламным бюджетом более 80 млн ₽ за сезон и 3–4 командами подрядчиков, с нуля строил сквозную аналитику и систему распределения бюджета по окупаемости, отдел продаж и автоворонки, которые работают до сих пор. Руководил командами до 6–7 человек и отдельным направлением (ОГЭ). Основатель SaaS-аналитики Pulse.
+            </div>
+            
+            <div class="section-title-main">ОПЫТ РАБОТЫ</div>
+            
+            <div class="job-title">100БАЛЛЬНЫЙ РЕПЕТИТОР — онлайн-школа ЕГЭ/ОГЭ</div>
+            <div class="job-meta">2020 — наст. время</div>
+            <div class="job-role">Перформанс-маркетолог (2024 → н.в.) · ранее: маркетолог (2022–2024), менеджер по продажам (2020–2022)</div>
+            
+            <div class="bullet-point">Управлял рекламным бюджетом <span class="highlight">более 80 млн ₽ за сезон</span>:
+                <div class="sub-bullet">Распределял его между 3–4 подрядчиками и предметами по уровневой системе на основе окупаемости (eROMI)</div>
+                <div class="sub-bullet">Перевёл планирование на модель от прогнозируемой выручки</div>
+            </div>
+            
+            <div class="bullet-point">Вёл проектную аналитику целевой аудитории:
+                <div class="sub-bullet">Разбирал когорты прошлых периодов и считал гипотезы для поиска новых подходов к работе с ЦА</div>
+                <div class="sub-bullet">Оценивал, какие когорты и продукты окупаются лучше</div>
+            </div>
+            
+            <div class="bullet-point">Проводил кастдевы (глубинные интервью) с учениками и на их основе:
+                <div class="sub-bullet">Формулировал и тестировал гипотезы по потребностям ЦА</div>
+                <div class="sub-bullet">Анализировал факторы решения о покупке</div>
+                <div class="sub-bullet">Разрабатывал позиционирование продукта и новые направления</div>
+            </div>
+            
+            <div class="bullet-point">Готовил сезонные медиапланы:
+                <div class="sub-bullet">Аналитика прошлых периодов по каждому предмету</div>
+                <div class="sub-bullet">Прогноз конверсии (CR) и стоимости лида (CPL)</div>
+                <div class="sub-bullet">Распределение бюджета по каналам (VK, Telegram) под планы продаж</div>
+            </div>
+            
+            <div class="bullet-point">С нуля поставил систему маркетинговой отчётности:
+                <div class="sub-bullet">Совместно с аналитиком построил сводную таблицу (РНП)</div>
+                <div class="sub-bullet">Траты, лиды, заявки, конверсии, стоимость лида и привлечения, продажи и ROMI по каналам с учётом кросс-продаж</div>
+                <div class="sub-bullet">Каркас используется и развивается до сих пор</div>
+            </div>
+            
+            <div class="bullet-point">Выстроил аналитику трафика вплоть до отдельных рекламных кампаний и лид-магнитов (встроенные id) → точечное перераспределение бюджета на самые окупаемые предметы</div>
+            
+            <div class="bullet-point">Построил систему чат-ботов и автоворонок продаж (Senler/VK):
+                <div class="sub-bullet">Собрал команду исполнителей</div>
+                <div class="sub-bullet">Ставил ТЗ на тексты, точки входа и лид-магниты</div>
+                <div class="sub-bullet">Через A/B-тесты находил рабочие связки</div>
+                <div class="sub-bullet">Масштабировал найденные воронки на другие предметы</div>
+            </div>
+            
+            <div class="bullet-point">Вёл направление ОГЭ как отдельный фокус:
+                <div class="sub-bullet">Постановка задач команде, найм, работа с преподавателями</div>
+                <div class="sub-bullet">Рост метрик</div>
+            </div>
+            
+            <div class="achievement">
+                <div class="achievement-title">Медиаплан сезона 24/25</div>
+                <div class="achievement-text">• С нуля спроектировано медиапланирование на все платные источники трафика
+                <br>• Анализ когортных отчетов, проецирование KPI
+                <br>• Итог: более 5k продаж, 60 млн выручки за первые 2 дня</div>
+            </div>
+            
+            <div class="achievement">
+                <div class="achievement-title">Performance-отдел (сезон 2024/25)</div>
+                <div class="achievement-text">• 82 млн ₽ трафик-бюджета за сезон
+                <br>• Средний EROMI 355% по направлениям ЕГЭ и ОГЭ
+                <br>• Руководство 3 командами по трафику
+                <br>• Планирование от прогнозируемой выручки</div>
+            </div>
+            
+            <div class="achievement">
+                <div class="achievement-title">Лид-магнит "Слив курса" (2024 — по наст. время)</div>
+                <div class="achievement-text">• Решение сделать событием ежемесячным
+                <br>• Пиковый ROMI на одном из предметов 500+%
+                <br>• Средний ROMI по всем предметам 173%</div>
+            </div>
+            
+            <div class="section-title-main">СОБСТВЕННЫЕ ПРОДУКТЫ</div>
+            
+            <div class="job-title">PULSE — SaaS сквозной аналитики Telegram-каналов</div>
+            <div class="job-meta">Основатель · 2024 — наст. время</div>
+            
+            <div class="bullet-point">С нуля и на собственные средства:
+                <div class="sub-bullet">Собрал команду, спроектировал и разработал платформу (фронтенд + бэкенд)</div>
+                <div class="sub-bullet">Разработал систему атрибуции и техническую интеграцию с Telegram</div>
+                <div class="sub-bullet">Выстроил маркетинг продукта</div>
+            </div>
+            
+            <div class="achievement">
+                <div class="achievement-title">Первый крупный клиент — 100балльный репетитор</div>
+                <div class="achievement-text">• 12,5 млн ₽ бюджета через закупы
+                <br>• 21 939 трекинговых ссылок
+                <br>• Подключено 42 ТГ-канала и более 20 млн ₽ бюджета
+                <br>• Более 700 тыс. отслеженных подписчиков
+                <br>• Средний eROMI более 340% (с учётом повторных покупок)</div>
+            </div>
+            
+            <div class="section-title-main">ОБРАЗОВАНИЕ</div>
+            
+            <div class="job-description">
+                <strong>РЭУ им. Г.В. Плеханова, Оренбургский филиал</strong><br>
+                Магистратура «Менеджмент» (38.04.02) · 2023 — 2025<br><br>
+                <strong>РЭУ им. Г.В. Плеханова, Оренбургский филиал</strong><br>
+                Бакалавриат «Менеджмент» (38.03.02) · 2019 — 2023
+            </div>
+            
+            <div class="section-title-main">ИНСТРУМЕНТЫ</div>
+            <div class="tools">
+                VK Ads · Telegram Ads · Senler · CRM · Figma · Tilda · Google Sheets / Excel · ИИ
+            </div>
+        </div>
+    </div>
+</body>
+</html>
