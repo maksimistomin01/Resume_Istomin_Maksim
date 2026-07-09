@@ -1,714 +1,533 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Резюме - Истомин Максим Сергеевич</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #f0f4f0 0%, #f8f8f8 100%);
-            line-height: 1.6;
-            color: #333;
-            cursor: default;
-        }
-        
-        .container {
-            display: flex;
-            max-width: 1200px;
-            margin: 30px auto;
-            background-color: white;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-            border-radius: 8px;
-            overflow: hidden;
-            animation: fadeIn 0.6s ease-in;
-        }
-        
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .sidebar {
-            width: 35%;
-            background: linear-gradient(135deg, #1a3a1a 0%, #2d5016 100%);
-            color: white;
-            padding: 50px 35px;
-            transition: all 0.3s ease;
-            position: relative;
-            max-height: 100vh;
-            overflow-y: auto;
-        }
-        
-        .sidebar::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 20% 50%, rgba(255,149,0,0.05) 0%, transparent 50%);
-            pointer-events: none;
-        }
-        
-        .sidebar-content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .main {
-            width: 65%;
-            padding: 50px 45px;
-            background-color: white;
-            animation: slideIn 0.6s ease-in 0.1s backwards;
-            max-height: 100vh;
-            overflow-y: auto;
-        }
-        
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        .name {
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            line-height: 1.1;
-            letter-spacing: -0.5px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        
-        .name:hover {
-            color: #ff9500;
-            text-shadow: 0 0 20px rgba(255,149,0,0.3);
-            transform: translateX(5px);
-        }
-        
-        .title {
-            font-size: 12px;
-            color: #ff9500;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
-            margin-bottom: 35px;
-            line-height: 1.6;
-            transition: all 0.3s ease;
-        }
-        
-        .title:hover {
-            letter-spacing: 1.8px;
-            text-shadow: 0 0 15px rgba(255,149,0,0.4);
-        }
-        
-        .section-title {
-            font-size: 11px;
-            color: #ff9500;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-top: 30px;
-            margin-bottom: 20px;
-            padding-bottom: 12px;
-            border-bottom: 2px solid #ff9500;
-            transition: all 0.3s ease;
-        }
-        
-        .section-title:hover {
-            border-bottom-color: #ffb84d;
-            padding-left: 5px;
-        }
-        
-        .section-title-main {
-            font-size: 13px;
-            color: #1a3a1a;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 35px;
-            margin-bottom: 20px;
-            padding-bottom: 12px;
-            border-bottom: 3px solid #ff9500;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            position: relative;
-        }
-        
-        .section-title-main::after {
-            content: '';
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            height: 3px;
-            background: #ffb84d;
-            width: 0;
-            transition: width 0.3s ease;
-        }
-        
-        .section-title-main:hover {
-            padding-left: 10px;
-        }
-        
-        .section-title-main:hover::after {
-            width: 100%;
-        }
-        
-        .contact-item {
-            font-size: 13px;
-            margin-bottom: 14px;
-            line-height: 1.5;
-            word-break: break-word;
-            transition: all 0.3s ease;
-            padding: 8px 10px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        
-        .contact-item:hover {
-            background-color: rgba(255,149,0,0.1);
-            padding-left: 15px;
-            color: #ffb84d;
-        }
-        
-        .competency {
-            margin-bottom: 24px;
-            transition: all 0.3s ease;
-            padding: 12px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        
-        .competency:hover {
-            background-color: rgba(255,149,0,0.08);
-            transform: translateX(5px);
-        }
-        
-        .competency-title {
-            font-weight: 700;
-            font-size: 12px;
-            margin-bottom: 8px;
-            color: #ff9500;
-            letter-spacing: 0.5px;
-            transition: all 0.3s ease;
-        }
-        
-        .competency:hover .competency-title {
-            color: #ffb84d;
-            text-shadow: 0 0 10px rgba(255,149,0,0.3);
-        }
-        
-        .competency-text {
-            font-size: 12px;
-            line-height: 1.6;
-            color: #e0e0e0;
-            transition: all 0.3s ease;
-        }
-        
-        .competency:hover .competency-text {
-            color: #ffffff;
-        }
-        
-        .job-title {
-            font-size: 17px;
-            font-weight: 700;
-            color: #1a3a1a;
-            margin-bottom: 6px;
-            letter-spacing: -0.3px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            position: relative;
-            padding-bottom: 5px;
-        }
-        
-        .job-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background: #ff9500;
-            transition: width 0.3s ease;
-        }
-        
-        .job-title:hover {
-            color: #ff9500;
-            padding-left: 5px;
-        }
-        
-        .job-title:hover::after {
-            width: 100%;
-        }
-        
-        .job-meta {
-            font-size: 13px;
-            color: #888;
-            margin-bottom: 14px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        
-        .job-meta:hover {
-            color: #ff9500;
-        }
-        
-        .job-role {
-            font-size: 12px;
-            color: #ff9500;
-            font-weight: 600;
-            margin-bottom: 14px;
-            letter-spacing: 0.3px;
-            transition: all 0.3s ease;
-        }
-        
-        .job-role:hover {
-            color: #ffb84d;
-            text-shadow: 0 0 8px rgba(255,149,0,0.2);
-        }
-        
-        .job-description {
-            font-size: 13px;
-            line-height: 1.7;
-            color: #333;
-            margin-bottom: 22px;
-            transition: all 0.3s ease;
-            padding: 15px;
-            border-radius: 4px;
-        }
-        
-        .job-description:hover {
-            background-color: #f9f9f9;
-            border-left: 3px solid #ff9500;
-            padding-left: 18px;
-        }
-        
-        .bullet-point {
-            margin-left: 0;
-            margin-bottom: 12px;
-            color: #333;
-            font-size: 13px;
-            line-height: 1.7;
-            transition: all 0.3s ease;
-            padding: 8px;
-            border-radius: 4px;
-        }
-        
-        .bullet-point:hover {
-            background-color: #f5f5f5;
-            padding-left: 12px;
-        }
-        
-        .bullet-point:before {
-            content: "▪ ";
-            color: #ff9500;
-            font-weight: 600;
-            margin-right: 10px;
-            transition: all 0.3s ease;
-        }
-        
-        .bullet-point:hover:before {
-            color: #ffb84d;
-            font-size: 16px;
-        }
-        
-        .sub-bullet {
-            margin-left: 24px;
-            margin-bottom: 8px;
-            color: #555;
-            font-size: 12px;
-            line-height: 1.6;
-            transition: all 0.2s ease;
-        }
-        
-        .sub-bullet:hover {
-            color: #ff9500;
-            padding-left: 5px;
-        }
-        
-        .sub-bullet:before {
-            content: "– ";
-            color: #ff9500;
-            margin-right: 8px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        
-        .achievement {
-            background-color: #fafafa;
-            padding: 18px;
-            margin-bottom: 18px;
-            border-left: 4px solid #ff9500;
-            border-radius: 3px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .achievement::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,149,0,0.1), transparent);
-            transition: left 0.5s ease;
-        }
-        
-        .achievement:hover {
-            background-color: #fff5e6;
-            border-left-width: 6px;
-            border-left-color: #ffb84d;
-            transform: translateX(5px);
-            box-shadow: 0 4px 12px rgba(255,149,0,0.15);
-        }
-        
-        .achievement:hover::before {
-            left: 100%;
-        }
-        
-        .achievement-title {
-            font-weight: 700;
-            color: #1a3a1a;
-            margin-bottom: 10px;
-            font-size: 13px;
-            letter-spacing: -0.2px;
-            transition: all 0.3s ease;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .achievement:hover .achievement-title {
-            color: #ff9500;
-        }
-        
-        .achievement-text {
-            font-size: 12px;
-            color: #555;
-            line-height: 1.7;
-            transition: all 0.3s ease;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .achievement:hover .achievement-text {
-            color: #333;
-        }
-        
-        .tools {
-            font-size: 13px;
-            color: #d8d8d8;
-            line-height: 1.7;
-            word-wrap: break-word;
-            transition: all 0.3s ease;
-            padding: 12px;
-            border-radius: 4px;
-        }
-        
-        .tools:hover {
-            color: #ffffff;
-            background-color: rgba(255,149,0,0.1);
-        }
-        
-        .highlight {
-            color: #ff9500;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            text-shadow: 0 0 0 rgba(255,149,0,0.5);
-        }
-        
-        .highlight:hover {
-            text-shadow: 0 0 10px rgba(255,149,0,0.5);
-        }
-        
-        @media (max-width: 900px) {
-            .container {
-                flex-direction: column;
-            }
-            .sidebar, .main {
-                width: 100%;
-                max-height: none;
-            }
-        }
-        
-        @media print {
-            body {
-                background-color: white;
-            }
-            .container {
-                max-width: 100%;
-                margin: 0;
-                box-shadow: none;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Истомин Максим Сергеевич — Резюме</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --dark-green: #1d3c2e;
+    --dark-green-light: #2c5340;
+    --orange: #cf7a3d;
+    --text-dark: #1c1c1c;
+    --text-gray: #8a8a8a;
+    --sidebar-text: #dbe4dd;
+    --sidebar-text-dim: #b7c4bc;
+    --line-light: #e3e3e3;
+  }
+
+  *{ box-sizing: border-box; margin:0; padding:0; }
+
+  body{
+    font-family: 'PT Sans', Arial, sans-serif;
+    color: var(--text-dark);
+    background: #f2f2f2;
+    line-height: 1.45;
+  }
+
+  .page{
+    display:flex;
+    max-width: 1100px;
+    margin: 0 auto;
+    background:#ffffff;
+    min-height:100vh;
+    box-shadow: 0 0 24px rgba(0,0,0,0.08);
+  }
+
+  /* ---------- SIDEBAR ---------- */
+  .sidebar{
+    width: 320px;
+    min-width: 320px;
+    background: var(--dark-green);
+    color: var(--sidebar-text);
+    padding: 40px 32px 60px;
+  }
+
+  .sidebar h1{
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 14px;
+  }
+
+  .sidebar .role-title{
+    color: var(--orange);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    line-height: 1.5;
+    margin-bottom: 32px;
+  }
+
+  .side-section{
+    margin-bottom: 30px;
+  }
+
+  .side-section h2{
+    color: var(--orange);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding-bottom: 8px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.18);
+  }
+
+  .contact-line{
+    font-size: 14px;
+    color: var(--sidebar-text);
+    margin-bottom: 6px;
+  }
+
+  .skill-item{
+    margin-bottom: 16px;
+    padding: 8px 10px;
+    margin-left: -10px;
+    margin-right: -10px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+  .skill-item:hover{
+    background-color: rgba(255,255,255,0.06);
+    transform: translateX(3px);
+  }
+  .skill-item:last-child{ margin-bottom:0; }
+
+  .skill-item .skill-name{
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 14.5px;
+    margin-bottom: 2px;
+  }
+
+  .skill-item .skill-desc{
+    font-size: 13px;
+    color: var(--sidebar-text-dim);
+    line-height: 1.4;
+  }
+
+  .edu-item{
+    margin-bottom: 16px;
+    padding: 8px 10px;
+    margin-left: -10px;
+    margin-right: -10px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+  .edu-item:hover{
+    background-color: rgba(255,255,255,0.06);
+    transform: translateX(3px);
+  }
+  .edu-item:last-child{ margin-bottom:0; }
+
+  .edu-item .edu-school{
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 14.5px;
+  }
+
+  .edu-item .edu-detail{
+    font-size: 13px;
+    color: var(--sidebar-text-dim);
+    line-height: 1.4;
+  }
+
+  .edu-item .edu-years{
+    font-size: 13px;
+    color: var(--sidebar-text-dim);
+  }
+
+  .tools-text{
+    font-size: 13.5px;
+    color: var(--sidebar-text);
+    line-height: 1.7;
+  }
+
+  /* ---------- MAIN ---------- */
+  .main{
+    flex:1;
+    padding: 40px 44px 60px;
+    min-width:0;
+  }
+
+  .section{
+    margin-bottom: 34px;
+  }
+
+  .section-title{
+    display:flex;
+    align-items:center;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+
+  .section-title h2{
+    color: var(--dark-green);
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .section-title .rule{
+    flex:1;
+    height: 2px;
+    background: var(--orange);
+  }
+
+  .about-text{
+    font-size: 14.5px;
+    color: var(--text-dark);
+    line-height: 1.6;
+  }
+
+  .entry{
+    margin-bottom: 26px;
+    padding: 14px 16px;
+    margin-left: -16px;
+    margin-right: -16px;
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  }
+  .entry:hover{
+    background-color: #faf6f2;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    transform: translateY(-2px);
+  }
+  .entry:last-child{ margin-bottom: 0; }
+
+  .entry-head{
+    display:flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .entry-head h3{
+    font-size: 15.5px;
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1.35;
+  }
+
+  .entry-date{
+    font-size: 13px;
+    color: var(--text-gray);
+    white-space: nowrap;
+    flex-shrink:0;
+  }
+
+  .entry-role{
+    font-style: italic;
+    color: var(--dark-green-light);
+    font-size: 14px;
+    margin: 4px 0 10px;
+    line-height: 1.4;
+  }
+
+  .role-block{
+    margin-top: 16px;
+    padding: 10px 14px;
+    margin-left: -14px;
+    margin-right: -14px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+  }
+  .role-block:hover{
+    background-color: #f4f1ec;
+  }
+  .role-block:first-of-type{
+    margin-top: 8px;
+  }
+
+  .role-head{
+    display:flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+
+  .role-name{
+    font-style: italic;
+    font-weight: 700;
+    color: var(--dark-green-light);
+    font-size: 14.5px;
+  }
+
+  .role-date{
+    font-size: 12.5px;
+    color: var(--text-gray);
+    white-space: nowrap;
+  }
+
+  ul.bullets{
+    list-style: none;
+    padding:0;
+  }
+
+  ul.bullets li{
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: var(--text-dark);
+    line-height: 1.55;
+  }
+
+  ul.bullets li::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 8px;
+    height: 8px;
+    background: var(--orange);
+  }
+
+  ul.bullets li:last-child{ margin-bottom:0; }
+
+  .tag{
+    font-size: 12.5px;
+    color: var(--text-gray);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 780px){
+    .page{ flex-direction: column; }
+    .sidebar{ width: 100%; min-width: 0; }
+  }
+
+  @media print{
+    body{ background:#fff; }
+    .page{ box-shadow:none; }
+  }
+</style>
 </head>
 <body>
-    <div class="container">
-        <div class="sidebar">
-            <div class="sidebar-content">
-                <div class="name">Истомин<br>Максим<br>Сергеевич</div>
-                <div class="title">Перформанс-маркетолог<br>Руководитель отдела<br>маркетинга</div>
-                
-                <div class="section-title">Контакты</div>
-                <div class="contact-item">+7 906 844-70-31</div>
-                <div class="contact-item">maks.istomin.01@bk.ru</div>
-                <div class="contact-item">t.me/m_istomin</div>
-                <div class="contact-item">Оренбург · удалённо</div>
-                <div class="contact-item">19.05.2001 · 25 лет</div>
-                
-                <div class="section-title">Компетенции</div>
-                
-                <div class="competency">
-                    <div class="competency-title">Performance-маркетинг</div>
-                    <div class="competency-text">VK Ads, Telegram Ads, медиапланирование, распределение бюджета по окупаемости</div>
-                </div>
-                
-                <div class="competency">
-                    <div class="competency-title">Сквозная аналитика</div>
-                    <div class="competency-text">Отчётность и метрики: CR, CPL, CAC, ROMI; A/B-тесты</div>
-                </div>
-                
-                <div class="competency">
-                    <div class="competency-title">Юнит-экономика</div>
-                    <div class="competency-text">Прогноз выручки, LTV, окупаемость (ROMI / eROMI)</div>
-                </div>
-                
-                <div class="competency">
-                    <div class="competency-title">Воронки и автоворонки</div>
-                    <div class="competency-text">Чат-боты (Senler / VK), лид-магниты, точки входа, старты продаж</div>
-                </div>
-                
-                <div class="competency">
-                    <div class="competency-title">Управление</div>
-                    <div class="competency-text">Команды до 6–7 человек и подрядчики, найм, регламенты</div>
-                </div>
-                
-                <div class="competency">
-                    <div class="competency-title">Отдел продаж</div>
-                    <div class="competency-text">Построение с нуля, скрипты, CRM, планы продаж</div>
-                </div>
-                
-                <div class="section-title">Образование</div>
-                
-                <div class="job-description" style="font-size: 12px; padding: 10px;">
-                    <strong>РЭУ им. Г.В. Плеханова</strong><br>
-                    Магистратура «Менеджмент»<br>
-                    2023 — 2025<br><br>
-                    Бакалавриат «Менеджмент»<br>
-                    2019 — 2023
-                </div>
-                
-                <div class="section-title">Инструменты</div>
-                <div class="tools">
-                    VK Ads · Telegram Ads · Senler · CRM · Figma · Tilda · Google Sheets / Excel · ИИ
-                </div>
-            </div>
-        </div>
-        
-        <div class="main">
-            <div class="section-title-main">О СЕБЕ</div>
-            <div class="job-description">
-                Маркетолог в EdTech с ~5-летним опытом и полным охватом цепочки «трафик → лиды → продажи → продления». Прошёл путь от менеджера по продажам до перформанс-маркетолога и тимлида: управлял рекламным бюджетом более 80 млн ₽ за сезон и 3–4 командами подрядчиков, с нуля строил сквозную аналитику и систему распределения бюджета по окупаемости, отдел продаж и автоворонки, которые работают до сих пор. Руководил командами до 6–7 человек и отдельным направлением (ОГЭ). Основатель SaaS-аналитики Pulse.
-            </div>
-            
-            <div class="section-title-main">ОПЫТ РАБОТЫ</div>
-            
-            <div class="job-title">100БАЛЛЬНЫЙ РЕПЕТИТОР — онлайн-школа ЕГЭ/ОГЭ</div>
-            <div class="job-meta">2020 — наст. время</div>
-            <div class="job-role">Перформанс-маркетолог (2024 → н.в.) · ранее: маркетолог (2022–2024), менеджер по продажам (2020–2022)</div>
-            
-            <div class="bullet-point">Управлял рекламным бюджетом <span class="highlight">более 80 млн ₽ за сезон</span>:
-                <div class="sub-bullet">Распределял его между 3–4 подрядчиками и предметами по уровневой системе на основе окупаемости (eROMI)</div>
-                <div class="sub-bullet">Перевёл планирование на модель от прогнозируемой выручки</div>
-            </div>
-            
-            <div class="bullet-point">Вёл проектную аналитику целевой аудитории:
-                <div class="sub-bullet">Разбирал когорты прошлых периодов и считал гипотезы для поиска новых подходов к работе с ЦА</div>
-                <div class="sub-bullet">Оценивал, какие когорты и продукты окупаются лучше</div>
-            </div>
-            
-            <div class="bullet-point">Проводил кастдевы (глубинные интервью) с учениками и на их основе:
-                <div class="sub-bullet">Формулировал и тестировал гипотезы по потребностям ЦА</div>
-                <div class="sub-bullet">Анализировал факторы решения о покупке</div>
-                <div class="sub-bullet">Разрабатывал позиционирование продукта и новые направления</div>
-            </div>
-            
-            <div class="bullet-point">Готовил сезонные медиапланы:
-                <div class="sub-bullet">Аналитика прошлых периодов по каждому предмету</div>
-                <div class="sub-bullet">Прогноз конверсии (CR) и стоимости лида (CPL)</div>
-                <div class="sub-bullet">Распределение бюджета по каналам (VK, Telegram) под планы продаж</div>
-            </div>
-            
-            <div class="bullet-point">С нуля поставил систему маркетинговой отчётности:
-                <div class="sub-bullet">Совместно с аналитиком построил сводную таблицу (РНП)</div>
-                <div class="sub-bullet">Траты, лиды, заявки, конверсии, стоимость лида и привлечения, продажи и ROMI по каналам с учётом кросс-продаж</div>
-                <div class="sub-bullet">Каркас используется и развивается до сих пор</div>
-            </div>
-            
-            <div class="bullet-point">Выстроил аналитику трафика вплоть до отдельных рекламных кампаний и лид-магнитов → точечное перераспределение бюджета на самые окупаемые предметы</div>
-            
-            <div class="bullet-point">Построил систему чат-ботов и автоворонок продаж (Senler/VK):
-                <div class="sub-bullet">Собрал команду исполнителей</div>
-                <div class="sub-bullet">Ставил ТЗ на тексты, точки входа и лид-магниты</div>
-                <div class="sub-bullet">Через A/B-тесты находил рабочие связки</div>
-                <div class="sub-bullet">Масштабировал найденные воронки на другие предметы</div>
-            </div>
-            
-            <div class="bullet-point">Вёл направление ОГЭ как отдельный фокус:
-                <div class="sub-bullet">Постановка задач команде, найм, работа с преподавателями</div>
-                <div class="sub-bullet">Рост метрик</div>
-            </div>
-            
-            <div class="bullet-point">Начинал в продажах:
-                <div class="sub-bullet">Выполнял планы продаж</div>
-                <div class="sub-bullet">Мои скрипты брали в пример и передавали стажёрам</div>
-                <div class="sub-bullet">Это дало понимание ЦА и воронки «изнутри»</div>
-            </div>
-            
-            <div class="achievement">
-                <div class="achievement-title">Медиаплан сезона 24/25</div>
-                <div class="achievement-text">• С нуля спроектировано медиапланирование на все платные источники трафика
-                <br>• Анализ когортных отчетов, проецирование KPI
-                <br>• Итог: более 5k продаж, 60 млн выручки за первые 2 дня</div>
-            </div>
-            
-            <div class="achievement">
-                <div class="achievement-title">Performance-отдел (сезон 2024/25)</div>
-                <div class="achievement-text">• 82 млн ₽ трафик-бюджета за сезон
-                <br>• Средний EROMI 355% по направлениям ЕГЭ и ОГЭ
-                <br>• Руководство 3 командами по трафику
-                <br>• Планирование от прогнозируемой выручки</div>
-            </div>
-            
-            <div class="achievement">
-                <div class="achievement-title">Лид-магнит "Слив курса" (2024 — по наст. время)</div>
-                <div class="achievement-text">• Решение сделать событием ежемесячным
-                <br>• Пиковый ROMI на одном из предметов 500+%
-                <br>• Средний ROMI по всем предметам 173%</div>
-            </div>
-            
-            <div class="section-title-main">ПРОЕКТНАЯ ДЕЯТЕЛЬНОСТЬ</div>
-            
-            <div class="job-title">ЕГЭFLEX — онлайн-школа ЕГЭ</div>
-            <div class="job-role">Перформанс-маркетолог · РОП · воронки</div>
-            
-            <div class="bullet-point">Построил сквозную аналитику школы с нуля и довёл её до рабочего инструмента принятия решений:
-                <div class="sub-bullet">Единая картина по тратам, лидам, конверсиям и продажам</div>
-                <div class="sub-bullet">Окупаемость каналов, на которую опиралось распределение бюджета</div>
-            </div>
-            
-            <div class="bullet-point">Привлёк команды по трафику и подключил каналы привлечения (Telegram инфлюенс-закупка и Telegram Ads, ВКонтакте, Авито):
-                <div class="sub-bullet">Структурировал распределение бюджета</div>
-                <div class="sub-bullet">Внедрил отчётность по командам</div>
-                <div class="sub-bullet">Внедрил KPI-мотивацию для подрядчиков и таргетологов</div>
-            </div>
-            
-            <div class="bullet-point">С нуля выстроил отдел продаж:
-                <div class="sub-bullet">Вырастил команду с 1 до 5+ менеджеров (найм и ротация)</div>
-                <div class="sub-bullet">Внедрил отчётность по менеджерам</div>
-                <div class="sub-bullet">Организовал работу в CRM</div>
-                <div class="sub-bullet">Разработал и A/B-тестировал скрипты</div>
-            </div>
-            
-            <div class="bullet-point">Собрал базовые автоворонки, лид-магниты и точки входа в чат-ботах</div>
-            <div class="bullet-point">Распределял трафик по каналам привлечения и создавал и усиливал воронки продаж</div>
-            <div class="bullet-point">Контент-маркетинг в соцсетях, в т.ч. Instagram: контент-план, ведение новых аккаунтов с нуля</div>
-            <div class="bullet-point">Найм и ротация команды (менеджеры отдела продаж и SMM-специалисты)</div>
-            
-            <div class="job-title">EASYЕНТ — онлайн-школа (Казахстан)</div>
-            <div class="job-role">Маркетолог</div>
-            <div class="job-meta">Февраль 2024 — июль 2024 (6 месяцев, проектно)</div>
-            
-            <div class="bullet-point">Подключился к проекту на неполную занятость (проектно) — вёл маркетинг и поддерживал отдел продаж на казахстанском рынке</div>
-            
-            <div class="bullet-point">Распределял трафик по каналам привлечения, создавал и усиливал воронки продаж; выстраивал маркетинговые процессы и поддерживал отдел продаж на рынке СНГ</div>
-            
-            <div class="bullet-point">Взаимодействовал с преподавателями школы: согласовывал контент и подачу материала для маркетинговых активностей, привлекал их к съёмкам и прогревающему контенту</div>
-            
-            <div class="bullet-point">Контент-маркетинг в соцсетях, в т.ч. Instagram: разработал контент-план и запустил ведение новых аккаунтов с нуля</div>
-            
-            <div class="bullet-point">Составлял контент-планы для YouTube и Telegram-канала школы: определял форматы, темы и периодичность публикаций под задачи прогрева и лидогенерации</div>
-            
-            <div class="bullet-point">Готовил презентации для вебинаров, прогревающих эфиров и продающих механик — прорабатывал структуру и смыслы под задачи конкретного запуска</div>
-            
-            <div class="bullet-point">Внедрил систему скидок и промо-акций на курсы (в т.ч. марафоны и специальные предложения к сезону подготовки к ЕНТ) — использовал их как инструмент прогрева и ускорения принятия решения о покупке</div>
-            
-            <div class="bullet-point">Дорабатывал скрипты продаж для менеджеров: адаптировал формулировки под аудиторию и специфику рынка, отслеживал, какие связки лучше конвертируют в оплату</div>
-            
-            <div class="bullet-point">Адаптировал маркетинговые материалы под двуязычную аудиторию (русский/казахский): контролировал качество переводов рекламных и продающих сообщений</div>
-            
-            <div class="bullet-point">Вёл учёт входящих заявок в CRM: контролировал скорость и качество обработки лидов менеджерами</div>
-            
-            <div class="bullet-point">Найм и ротация команды: менеджеры отдела продаж и SMM-специалисты</div>
-            
-            <div class="job-title">Think (ЕГЭ), Парта (ЕГЭ), beauty-школы (2 проекта), ТруШкола, Камерная ЕГЭ-школа</div>
-            <div class="job-role">Проектная работа</div>
-            
-            <div class="bullet-point">Сквозная аналитика</div>
-            <div class="bullet-point">Проджект-менеджмент у таргетологов (VK и Telegram)</div>
-            <div class="bullet-point">Создание и усиление воронок продаж</div>
-            <div class="bullet-point">Автоворонки и рассылки</div>
-            
-            <div class="section-title-main">СОБСТВЕННЫЕ ПРОДУКТЫ</div>
-            
-            <div class="job-title">PULSE — SaaS сквозной аналитики Telegram-каналов</div>
-            <div class="job-meta">2025 — наст. время</div>
-            <div class="job-role">Основатель</div>
-            
-            <div class="bullet-point">С нуля и на собственные средства:
-                <div class="sub-bullet">Собрал команду, спроектировал и разработал платформу (фронтенд + бэкенд)</div>
-                <div class="sub-bullet">Разработал систему атрибуции и техническую интеграцию с Telegram</div>
-                <div class="sub-bullet">Выстроил маркетинг продукта</div>
-            </div>
-            
-            <div class="achievement">
-                <div class="achievement-title">Сквозная атрибуция Telegram</div>
-                <div class="achievement-text">• От рекламного размещения до оплаты на уровне конкретного пользователя
-                <br>• Реальные ROMI, CPL и LTV в разрезе канала, объявления и когорты
-                <br>• Интеграция с Telegram на уровне протокола (не через стандартную статистику)</div>
-            </div>
-            
-            <div class="achievement">
-                <div class="achievement-title">Первый крупный клиент — 100балльный репетитор</div>
-                <div class="achievement-text">• 12,5 млн ₽ бюджета через закупы
-                <br>• 21 939 трекинговых ссылок
-                <br>• Подключено 42 ТГ-канала и более 20 млн ₽ бюджета
-                <br>• Более 700 тыс. отслеженных подписчиков
-                <br>• Средний eROMI более 340% (с учётом повторных покупок)</div>
-            </div>
-            
-            <div class="job-title">TEXTCHECK — распознавание текста на креативах</div>
-            <div class="job-role">Действующий</div>
-            
-            <div class="bullet-point">Определяет процент текста на изображении до публикации — креативы заранее проходят модерацию рекламы; экономит время команды и снижает риск отклонения объявлений</div>
-            
-            <div class="job-title">CRM ДЛЯ B2B-ПРОДАЖ</div>
-            <div class="job-role">Действующая</div>
-            
-            <div class="bullet-point">Менеджер заносит контакты из соцсетей, фиксирует и переключает статусы сделок по актуальности, вносит суммы и ведёт всю воронку продаж в одном окне</div>
-        </div>
+<div class="page">
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar">
+    <h1>Истомин<br>Максим<br>Сергеевич</h1>
+    <div class="role-title">Перформанс-маркетолог · Руководитель отдела маркетинга</div>
+
+    <div class="side-section">
+      <h2>Контакты</h2>
+      <div class="contact-line">+7 906 844-70-31</div>
+      <div class="contact-line">maks.istomin.01@bk.ru</div>
+      <div class="contact-line">t.me/m_istomin</div>
+      <div class="contact-line">Оренбург · удалённо</div>
+      <div class="contact-line">19.05.2001 · 25 лет</div>
     </div>
+
+    <div class="side-section">
+      <h2>Компетенции</h2>
+      <div class="skill-item">
+        <div class="skill-name">Performance-маркетинг</div>
+        <div class="skill-desc">VK Ads, Telegram Ads, медиапланирование, распределение бюджета по окупаемости</div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name">Сквозная аналитика</div>
+        <div class="skill-desc">отчётность и метрики: CR (конверсия), CPL (стоимость лида), CAC, ROMI; A/B-тесты</div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name">Юнит-экономика</div>
+        <div class="skill-desc">прогноз выручки, LTV, окупаемость (ROMI / eROMI)</div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name">Воронки и автоворонки</div>
+        <div class="skill-desc">чат-боты (Senler / VK), лид-магниты, точки входа, старты продаж</div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name">Управление</div>
+        <div class="skill-desc">команды до 6–7 человек и подрядчики, найм, регламенты</div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name">Отдел продаж</div>
+        <div class="skill-desc">построение с нуля, скрипты, CRM, планы продаж</div>
+      </div>
+    </div>
+
+    <div class="side-section">
+      <h2>Образование</h2>
+      <div class="edu-item">
+        <div class="edu-school">РЭУ им. Г.В. Плеханова</div>
+        <div class="edu-detail">Оренбургский филиал · магистратура<br>«Менеджмент» (38.04.02), очно</div>
+        <div class="edu-years">2023 — 2025</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-school">РЭУ им. Г.В. Плеханова</div>
+        <div class="edu-detail">Оренбургский филиал · бакалавриат<br>«Менеджмент» (38.03.02), очно</div>
+        <div class="edu-years">2019 — 2023</div>
+      </div>
+    </div>
+
+    <div class="side-section">
+      <h2>Инструменты</h2>
+      <div class="tools-text">VK Ads · Telegram Ads · Senler · CRM · Figma · Tilda · Google Sheets / Excel · ИИ</div>
+    </div>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <main class="main">
+
+    <section class="section">
+      <div class="section-title"><h2>О себе</h2><div class="rule"></div></div>
+      <p class="about-text">
+        Маркетолог в EdTech с ~5-летним опытом и полным охватом цепочки «трафик → лиды → продажи → продления».
+        Прошёл путь от менеджера по продажам до перформанс-маркетолога и тимлида: управлял рекламным бюджетом
+        более 80 млн ₽ за сезон и 3–4 командами подрядчиков, с нуля строил сквозную аналитику и систему
+        распределения бюджета по окупаемости, отдел продаж и автоворонки, которые работают до сих пор.
+        Руководил командами до 6–7 человек и отдельным направлением (ОГЭ). Основатель SaaS-аналитики Pulse.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="section-title"><h2>Опыт работы</h2><div class="rule"></div></div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <h3>«100балльный репетитор» — онлайн-школа ЕГЭ/ОГЭ</h3>
+          <div class="entry-date">2020 — наст. время</div>
+        </div>
+        <div class="entry-role">Перформанс-маркетолог (2024 → н.в.) · ранее: маркетолог (2022–2024), менеджер по продажам (2020–2022)</div>
+        <ul class="bullets">
+          <li>Управлял рекламным бюджетом <strong>более 80 млн ₽ за сезон</strong>: распределял его между 3–4 подрядчиками (с их таргетологами) и предметами по уровневой системе на основе окупаемости (eROMI); перевёл планирование на модель от прогнозируемой выручки.</li>
+          <li>Вёл проектную аналитику целевой аудитории: разбирал когорты прошлых периодов и считал гипотезы, чтобы находить новые подходы к работе с ЦА и оценивать, какие когорты и продукты окупаются лучше.</li>
+          <li>Проводил кастдевы (глубинные интервью) с учениками и на их основе формулировал и тестировал гипотезы — по потребностям ЦА, факторам решения о покупке, позиционированию продукта и новым направлениям.</li>
+          <li>Готовил сезонные медиапланы: аналитика прошлых периодов по каждому предмету, прогноз конверсии (CR) и стоимости лида (CPL), распределение бюджета по каналам (VK, Telegram) под планы продаж.</li>
+          <li>С нуля поставил систему маркетинговой отчётности и совместно с аналитиком построил сводную таблицу (РНП): траты, лиды, заявки, конверсии (CR), стоимость лида (CPL) и привлечения (CAC), продажи и ROMI по каналам с учётом кросс-продаж — её каркас используется и развивается до сих пор.</li>
+          <li>Выстроил аналитику трафика вплоть до отдельных рекламных кампаний и лид-магнитов (встроенные id) → точечное перераспределение бюджета на самые окупаемые предметы.</li>
+          <li>Построил систему чат-ботов и автоворонок продаж (Senler/VK) и собрал под неё команду исполнителей: ставил ТЗ на тексты, точки входа и лид-магниты, через A/B-тесты находил рабочие связки и масштабировал найденные воронки на другие предметы — итоговый вариант приносит результат до сих пор.</li>
+          <li>Вёл направление ОГЭ как отдельный фокус: постановка задач команде, найм (YouTube, SMM, копирайтинг), работа с преподавателями, рост метрик.</li>
+          <li>Начинал в продажах: выполнял планы продаж, мои скрипты брали в пример и передавали стажёрам — это дало понимание ЦА и воронки «изнутри».</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title"><h2>Проектная деятельность</h2><div class="rule"></div></div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <h3>ЕГЭфлекс — онлайн-школа ЕГЭ</h3>
+          <div class="tag">проект</div>
+        </div>
+
+        <div class="role-block">
+          <div class="role-head">
+            <span class="role-name">Performance-маркетолог</span>
+            <span class="role-date">Декабрь 2023 — Февраль 2025 (1 год 3 месяца)</span>
+          </div>
+          <ul class="bullets">
+            <li>Построил сквозную аналитику школы с нуля и довёл её до рабочего инструмента принятия решений: единая картина по тратам, лидам, конверсиям и продажам с окупаемостью каналов, на которую опиралось распределение бюджета.</li>
+            <li>Привлёк команды по трафику и подключил каналы привлечения (Telegram — инфлюенс-закупка и Telegram Ads, ВКонтакте, Авито); настроил перформанс-маркетинг, структурировал распределение бюджета, внедрил отчётность по командам и KPI-мотивацию для подрядчиков и таргетологов.</li>
+            <li>Внедрил систему планирования бюджета на основе когортной аналитики вместо распределения «на глаз»: разбирал окупаемость прошлых когорт и на этой основе прогнозировал бюджет на новые периоды — под управлением было до ~2 млн ₽ в месяц.</li>
+            <li>Собрал базовые автоворонки, лид-магниты и точки входа в чат-ботах.</li>
+          </ul>
+        </div>
+
+        <div class="role-block">
+          <div class="role-head">
+            <span class="role-name">Руководитель отдела продаж</span>
+            <span class="role-date">Декабрь 2023 — Февраль 2025 (1 год 3 месяца)</span>
+          </div>
+          <ul class="bullets">
+            <li>Нанял и вырастил команду с 1 до 6 стабильно работающих менеджеров по продажам: разработал систему найма, адаптации и ротации кадров.</li>
+            <li>Полностью пересобрал CRM-систему: внедрил схему разметки услуг, выгрузку статистики по продуктам, дополнительные статусы для работы с клиентами на разных этапах воронки.</li>
+            <li>Внедрил систему контроля обращений: настроил автоматическую выгрузку всех диалогов с клиентами в единую базу для сквозной проверки — устранил проблему потери заявок и получил возможность отслеживать полный путь клиента от первого касания до сделки.</li>
+            <li>Разработал и внедрил регламенты работы отдела: время ответа менеджера, зоны ответственности по статусам сделок, стандарты ведения диалога.</li>
+            <li>Составил методичку по скриптам продаж объёмом 35 страниц: собрал ответы на все типовые возражения клиентов, примеры диалогов и разбор сложных ситуаций — использовалась для обучения новых менеджеров.</li>
+            <li>Регулярно тестировал разные варианты скриптов продаж через A/B-тесты: сравнивал формулировки на этапах установления контакта, отработки возражений и закрытия сделки, оставлял в работе только те связки, которые давали более высокую конверсию в оплату.</li>
+            <li>Отладил процессы расчёта зарплаты менеджеров, переработал систему KPI под фактическую эффективность продаж.</li>
+            <li>Построил систему планирования продаж с привязкой к каналам привлечения, сезонности спроса и конкретным предметам — вместо усреднённых планов «по компании».</li>
+            <li>Проводил регулярный анализ конверсий по менеджерам и выявлял узкие места в воронке продаж.</li>
+            <li>Результат: рост конверсии из заявки в продажу, стабильное выполнение планов продаж командой на протяжении всего периода работы.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <h3>EasyЕНТ — онлайн-школа (Казахстан)</h3>
+          <div class="tag">Февраль 2024 — Июль 2024 (6 месяцев)</div>
+        </div>
+        <div class="entry-role">Маркетолог</div>
+        <ul class="bullets">
+          <li>Подключился к проекту на неполную занятость (проектно) — вёл маркетинг и поддерживал отдел продаж на казахстанском рынке.</li>
+          <li>Распределял трафик по каналам привлечения, создавал и усиливал воронки продаж; выстраивал маркетинговые процессы и поддерживал отдел продаж на рынке СНГ.</li>
+          <li>Взаимодействовал с преподавателями школы: согласовывал контент и подачу материала для маркетинговых активностей, привлекал их к съёмкам и прогревающему контенту.</li>
+          <li>Контент-маркетинг в соцсетях, в т.ч. Instagram: разработал контент-план и запустил ведение новых аккаунтов с нуля.</li>
+          <li>Составлял контент-планы для YouTube и Telegram-канала школы: определял форматы, темы и периодичность публикаций под задачи прогрева и лидогенерации.</li>
+          <li>Готовил презентации для вебинаров, прогревающих эфиров и продающих механик — прорабатывал структуру и смыслы под задачи конкретного запуска.</li>
+          <li>Внедрил систему скидок и промо-акций на курсы (в т.ч. марафоны и специальные предложения к сезону подготовки к ЕНТ) — использовал их как инструмент прогрева и ускорения принятия решения о покупке.</li>
+          <li>Дорабатывал скрипты продаж для менеджеров: адаптировал формулировки под аудиторию и специфику рынка, отслеживал, какие связки лучше конвертируют в оплату.</li>
+          <li>Адаптировал маркетинговые материалы под двуязычную аудиторию (русский/казахский): контролировал качество переводов рекламных и продающих сообщений.</li>
+          <li>Вёл учёт входящих заявок в CRM: контролировал скорость и качество обработки лидов менеджерами.</li>
+          <li>Найм и ротация команды: менеджеры отдела продаж и SMM-специалисты.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <h3>Другие проекты — школы ЕГЭ и beauty-сегмент</h3>
+          <div class="tag">проектно</div>
+        </div>
+        <ul class="bullets">
+          <li>Think (ЕГЭ), Парта (ЕГЭ), beauty-школы (2 проекта), ТруШкола (профильная математика), камерная ЕГЭ-школа: сквозная аналитика, проджект-менеджмент у таргетологов (VK и Telegram), создание и усиление воронок продаж, автоворонки и рассылки.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title"><h2>Собственные продукты</h2><div class="rule"></div></div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <h3>Pulse — SaaS сквозной аналитики Telegram-каналов</h3>
+          <div class="entry-date">2025 — наст. время</div>
+        </div>
+        <div class="entry-role">Основатель</div>
+        <ul class="bullets">
+          <li>С нуля и на собственные средства: собрал команду, спроектировал и разработал платформу (фронтенд + бэкенд), систему атрибуции и нетривиальную техническую интеграцию с инфраструктурой Telegram; выстроил маркетинг продукта.</li>
+          <li>Первый крупный клиент — онлайн-школа «100балльный репетитор»: средний <strong>eROMI более 340%</strong> (с учётом повторных покупок) по каналам привлечения, более 700 тыс. отслеженных подписчиков и <strong>более 20 млн ₽</strong> бюджета через 35+ тыс. трекинговых ссылок по 42 ТГ-каналам и источникам TG Ads, Telega In, TikTok, Influence, YouTube, Авито, Max.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <h3>TextCheck — распознавание текста на креативах</h3>
+          <div class="tag">действующий</div>
+        </div>
+        <div class="entry-role">Собственная разработка · используется командой трафика</div>
+        <ul class="bullets">
+          <li>Определяет процент текста на изображении до публикации — креативы заранее проходят модерацию рекламы; экономит время команды и снижает риск отклонения объявлений.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <h3>CRM для B2B-продаж</h3>
+          <div class="tag">действующая</div>
+        </div>
+        <div class="entry-role">Собственная разработка</div>
+        <ul class="bullets">
+          <li>Менеджер заносит контакты из соцсетей, фиксирует и переключает статусы сделок по актуальности, вносит суммы и ведёт всю воронку продаж в одном окне.</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+</div>
 </body>
 </html>
